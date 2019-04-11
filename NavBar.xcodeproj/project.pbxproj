@@ -27,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1D6058910D05DD3D006BFB54 /* NavBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5160C9605160C92000000001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		536E5AB620AC99A600DF859D /* CustomBackButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonViewController.swift; path = NavBar/CustomBackButton/CustomBackButtonViewController.swift; sourceTree = "<group>"; };
 		536E5AB720AC99A600DF859D /* CustomBackButtonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonDetailViewController.swift; path = NavBar/CustomBackButton/CustomBackButtonDetailViewController.swift; sourceTree = "<group>"; };
 		536E5AB820AC99A600DF859D /* CustomBackButtonNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonNavController.swift; path = NavBar/CustomBackButton/CustomBackButtonNavController.swift; sourceTree = "<group>"; };
@@ -44,9 +45,8 @@
 		538A326E1FB37B0600CFDBDE /* CustomAppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAppearanceViewController.swift; path = NavBar/CustomAppearance/CustomAppearanceViewController.swift; sourceTree = "<group>"; };
 		538A32771FB37B2B00CFDBDE /* LargeTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LargeTitleViewController.swift; path = NavBar/LargeTitle/LargeTitleViewController.swift; sourceTree = "<group>"; };
 		538A32791FB3AE3700CFDBDE /* CitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CitiesDataSource.swift; path = NavBar/CitiesDataSource.swift; sourceTree = "<group>"; };
-		D0E35F801A8D45B700F74DCE /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
-		F75628D0F7566C7000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		F9D3D350F9D3CE3000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		60D1CEB060D1D12000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		60D6DB7060D6F7C000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +71,12 @@
 		29B97314FDCFA39411CA2CEA /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				D0E35F801A8D45B700F74DCE /* ReadMe.md */,
+				5160C9605160C92000000001 /* README.md */,
 				29B97315FDCFA39411CA2CEA /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Supporting Files */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				F756ED30F7568B1000000001 /* Configuration */,
-				F9D3E800F9D3D2B000000001 /* LICENSE */,
+				60D1D7E060D2EF8000000001 /* Configuration */,
+				60D6DB3060D6DC3000000001 /* LICENSE */,
 			);
 			name = Toolbar;
 			sourceTree = "<group>";
@@ -128,6 +128,23 @@
 			name = BackButton;
 			sourceTree = "<group>";
 		};
+		60D1D7E060D2EF8000000001 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				60D1CEB060D1D12000000001 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		60D6DB3060D6DC3000000001 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				60D6DB7060D6F7C000000001 /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			path = LICENSE;
+			sourceTree = "<group>";
+		};
 		D0B26FB418F8A8DC00DE72C7 /* CustomAppearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,23 +177,6 @@
 			name = NavigationPrompt;
 			sourceTree = "<group>";
 		};
-		F756ED30F7568B1000000001 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				F75628D0F7566C7000000001 /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
-		F9D3E800F9D3D2B000000001 /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				F9D3D350F9D3CE3000000001 /* LICENSE.txt */,
-			);
-			name = LICENSE;
-			path = LICENSE;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,7 +187,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				53A7126520F7DB7F004FEE33,
+				53807C90538078F000000001,
 			);
 			buildRules = (
 			);
@@ -208,22 +208,21 @@
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "NavBar" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
 				en,
 				Base,
+				fr,
+				de,
+				ja,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA;
 			projectDirPath = "";
@@ -300,7 +299,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F75628D0F7566C7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -314,14 +313,14 @@
 				PRODUCT_NAME = NavBar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F75628D0F7566C7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -333,14 +332,14 @@
 				PRODUCT_NAME = NavBar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F75628D0F7566C7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -379,7 +378,7 @@
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F75628D0F7566C7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
