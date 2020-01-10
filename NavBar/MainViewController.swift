@@ -17,11 +17,13 @@ class MainViewController: UITableViewController, UIActionSheetDelegate {
      *  Unwind action that is targeted by the demos which present a modal view
      *  controller, to return to the main screen.
      */
-    @IBAction func unwindToMainViewController(_ sender: UIStoryboardSegue) { }
+    @IBAction func unwindToMainViewController(_ sender: UIStoryboardSegue) {
+        tableView.deselectRow(at: tableView!.indexPathForSelectedRow!, animated: false)
+    }
     
     // MARK: - Style AlertController
 	
-    /// IBAction for the 'Style' bar button item.
+    /// User tapped the left 'Style' bar button item.
     /// - Tag: BarStyleExample
     @IBAction func styleAction(_ sender: AnyObject) {
         let title = NSLocalizedString("Choose a UIBarStyle:", comment: "")
@@ -41,11 +43,13 @@ class MainViewController: UITableViewController, UIActionSheetDelegate {
 			self.navigationController!.navigationBar.isTranslucent = true
 			// Reset the bar's tint color to the system default.
 			self.navigationController!.navigationBar.tintColor = nil
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.label]
 		})
 		alertController.addAction(UIAlertAction(title: NSLocalizedString(blackOpaqueTitle, comment: ""),
 		                                        style: .default) { _ in
 			// Change to black-opaque.
 			self.navigationController!.navigationBar.barStyle = .black
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 			self.navigationController!.navigationBar.isTranslucent = false
 			self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
 		})
@@ -53,32 +57,12 @@ class MainViewController: UITableViewController, UIActionSheetDelegate {
 		                                        style: .default) { _ in
 			// Change to black-translucent.
 
-                                                    self.navigationController!.navigationBar.barStyle = .black
-                                                    self.navigationController!.navigationBar.isTranslucent = true
-                                                    self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
+            self.navigationController!.navigationBar.barStyle = .black
+            self.navigationController!.navigationBar.isTranslucent = true
+            self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
 		})
 		self.present(alertController, animated: true, completion: nil)
     }
 
-	override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-		var shouldPerform = true
-		let indexPath = self.tableView.indexPathForSelectedRow
-		if indexPath?.row == 6 {
-			if #available(iOS 11.0, *) {
-				//..
-			} else {
-				// LargeTitle feature available in iOS 11 and later.
-				let title = NSLocalizedString("LargeTitle message", comment: "")
-				let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-				alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-				                                        style: .default) { _ in })
-				self.present(alertController, animated: true, completion: nil)
-				
-				tableView.deselectRow(at: indexPath!, animated: true)
-				shouldPerform = false
-			}
-		}
-		return shouldPerform
-	}
-	
 }

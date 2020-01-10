@@ -9,13 +9,8 @@ import UIKit
 
 class CustomBackButtonDetailViewController: UIViewController {
     
-    @IBOutlet var cityLabel: UILabel!
-    @objc var city: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cityLabel.text = city
     }
     
 }

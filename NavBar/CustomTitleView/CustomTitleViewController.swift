@@ -36,7 +36,7 @@ class CustomTitleViewController: UIViewController {
     
     /// IBAction for the segmented control.
 	@IBAction func action(_ sender: AnyObject) {
-        print("CustomTitleViewController IBAction invoked!")
+        Swift.debugPrint("CustomTitleViewController IBAction invoked")
     }
     
 }

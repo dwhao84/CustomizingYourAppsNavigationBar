@@ -24,6 +24,4 @@ Localized strings.
 /* NavigationPromptViewController */
 "Navigation prompts appear at the top." = "Navigation prompts appear at the top.";
 
-/* LargeTitleViewController */
-"LargeTitle message" = "Large Title is available only in iOS 11 and later.";
 

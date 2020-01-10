@@ -18,11 +18,7 @@ class CitiesDataSource: NSObject, UITableViewDataSource {
 			URL(fileURLWithPath: Bundle.main.path(forResource: "Cities", ofType: "json")!)
 		do {
 			let citiesJSONData = try Data(contentsOf: citiesJSONURL)
-			let jsonObject = try JSONSerialization.jsonObject(with: citiesJSONData,
-															  options: JSONSerialization.ReadingOptions(rawValue: UInt(0)))
-			if let jsonCities = jsonObject as? [String] {
-				cities = jsonCities
-			}
+            cities = try JSONDecoder().decode([String].self, from: citiesJSONData)
 		} catch {
 			//..
 		}

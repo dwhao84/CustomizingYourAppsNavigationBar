@@ -33,7 +33,7 @@ class CustomRightViewController: UIViewController {
             
         case SegmentedControl.imageButton:
             // add our custom image button as the nav bar's custom right view.
-            let emailButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Email"),
+            let emailButton = UIBarButtonItem(image: UIImage(systemName: "envelope")!,
                                               style: .plain,
                                               target: self,
                                               action: #selector(action(_:)))
@@ -42,8 +42,8 @@ class CustomRightViewController: UIViewController {
         case SegmentedControl.controlButton:
             // "Segmented" control to the right.
             let segmentedControl = UISegmentedControl(items: [
-                #imageLiteral(resourceName: "UpArrow"),
-                #imageLiteral(resourceName: "DownArrow")
+                UIImage(systemName: "arrow.up")!,
+                UIImage(systemName: "arrow.down")!
             ])
             
             segmentedControl.addTarget(self, action: #selector(action), for: .valueChanged)
@@ -61,7 +61,7 @@ class CustomRightViewController: UIViewController {
     
     /// IBAction for the various bar button items shown in this example.
     @IBAction func action(_ sender: AnyObject) {
-        print("CustomRightViewController IBAction invoked!")
+        Swift.debugPrint("CustomRightViewController IBAction invoked")
     }
     
 }

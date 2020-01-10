@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		532ACCAD2374C2F800E6256A /* NavBarAppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532ACCAC2374C2F800E6256A /* NavBarAppearanceViewController.swift */; };
 		536E5AB920AC99A600DF859D /* CustomBackButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB620AC99A600DF859D /* CustomBackButtonViewController.swift */; };
 		536E5ABA20AC99A600DF859D /* CustomBackButtonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB720AC99A600DF859D /* CustomBackButtonDetailViewController.swift */; };
 		536E5ABB20AC99A600DF859D /* CustomBackButtonNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536E5AB820AC99A600DF859D /* CustomBackButtonNavController.swift */; };
@@ -26,8 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10A41F3B4DA48BEA5AC41FBC /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* NavBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160C9605160C92000000001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		532ACCAC2374C2F800E6256A /* NavBarAppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavBarAppearanceViewController.swift; path = NavBar/NavBarAppearance/NavBarAppearanceViewController.swift; sourceTree = "<group>"; };
 		536E5AB620AC99A600DF859D /* CustomBackButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonViewController.swift; path = NavBar/CustomBackButton/CustomBackButtonViewController.swift; sourceTree = "<group>"; };
 		536E5AB720AC99A600DF859D /* CustomBackButtonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonDetailViewController.swift; path = NavBar/CustomBackButton/CustomBackButtonDetailViewController.swift; sourceTree = "<group>"; };
 		536E5AB820AC99A600DF859D /* CustomBackButtonNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomBackButtonNavController.swift; path = NavBar/CustomBackButton/CustomBackButtonNavController.swift; sourceTree = "<group>"; };
@@ -45,8 +48,7 @@
 		538A326E1FB37B0600CFDBDE /* CustomAppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomAppearanceViewController.swift; path = NavBar/CustomAppearance/CustomAppearanceViewController.swift; sourceTree = "<group>"; };
 		538A32771FB37B2B00CFDBDE /* LargeTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LargeTitleViewController.swift; path = NavBar/LargeTitle/LargeTitleViewController.swift; sourceTree = "<group>"; };
 		538A32791FB3AE3700CFDBDE /* CitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CitiesDataSource.swift; path = NavBar/CitiesDataSource.swift; sourceTree = "<group>"; };
-		60D1CEB060D1D12000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		60D6DB7060D6F7C000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CD6953FAC197D4560224BC2 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				10A41F3B4DA48BEA5AC41FBC /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			path = LICENSE;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +86,8 @@
 				29B97315FDCFA39411CA2CEA /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Supporting Files */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				60D1D7E060D2EF8000000001 /* Configuration */,
-				60D6DB3060D6DC3000000001 /* LICENSE */,
+				418277D9C3AED785BDAD9FE5 /* Configuration */,
+				0CD6953FAC197D4560224BC2 /* LICENSE */,
 			);
 			name = Toolbar;
 			sourceTree = "<group>";
@@ -93,6 +104,7 @@
 				D0B26FB418F8A8DC00DE72C7 /* CustomAppearance */,
 				536E5AB520AC999C00DF859D /* BackButton */,
 				53578E051FA1012100E32463 /* LargeTitle */,
+				532ACCAB2374C2DC00E6256A /* NavigationBarAppearance */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -108,6 +120,22 @@
 				538A325A1FB37AAD00CFDBDE /* Images.xcassets */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		418277D9C3AED785BDAD9FE5 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		532ACCAB2374C2DC00E6256A /* NavigationBarAppearance */ = {
+			isa = PBXGroup;
+			children = (
+				532ACCAC2374C2F800E6256A /* NavBarAppearanceViewController.swift */,
+			);
+			name = NavigationBarAppearance;
 			sourceTree = "<group>";
 		};
 		53578E051FA1012100E32463 /* LargeTitle */ = {
@@ -126,23 +154,6 @@
 				536E5AB720AC99A600DF859D /* CustomBackButtonDetailViewController.swift */,
 			);
 			name = BackButton;
-			sourceTree = "<group>";
-		};
-		60D1D7E060D2EF8000000001 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				60D1CEB060D1D12000000001 /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
-		60D6DB3060D6DC3000000001 /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				60D6DB7060D6F7C000000001 /* LICENSE.txt */,
-			);
-			name = LICENSE;
-			path = LICENSE;
 			sourceTree = "<group>";
 		};
 		D0B26FB418F8A8DC00DE72C7 /* CustomAppearance */ = {
@@ -187,7 +198,6 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				53807C90538078F000000001,
 			);
 			buildRules = (
 			);
@@ -208,6 +218,7 @@
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = V7M23Q5387;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -224,7 +235,7 @@
 				de,
 				ja,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Toolbar */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -253,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532ACCAD2374C2F800E6256A /* NavBarAppearanceViewController.swift in Sources */,
 				538A327A1FB3AE3700CFDBDE /* CitiesDataSource.swift in Sources */,
 				538A32631FB37AC400CFDBDE /* AppDelegate.swift in Sources */,
 				538A32651FB37AD000CFDBDE /* CustomRightViewController.swift in Sources */,
@@ -299,7 +311,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -308,38 +320,44 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/NavBar/NavBar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = NavBar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/NavBar/NavBar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.${PRODUCT_NAME:identifier}${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = NavBar;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -370,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -378,7 +396,7 @@
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60D1CEB060D1D12000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 80E964B7FBEAF651088BAFC4 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -408,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

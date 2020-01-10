@@ -7,10 +7,31 @@ Demonstrates applying a custom background to a navigation bar.
 
 import UIKit
 
+extension UIImage {
+    static func gradientImage(bounds: CGRect, colors: [CGColor]) -> UIImage {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = colors
+        
+        UIGraphicsBeginImageContext(gradient.bounds.size)
+        gradient.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
+}
+
+// MARK: -
+
 class CustomAppearanceViewController: UITableViewController {
 
     @IBOutlet var backgroundSwitcher: UISegmentedControl!
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.portrait, .landscape]
+    }
+    
 	/// Our data source is an array of city names, populated from Cities.json.
 	let dataSource = CitiesDataSource()
 	
@@ -35,11 +56,15 @@ class CustomAppearanceViewController: UITableViewController {
      */
     /// - Tag: BackgroundImageExample
     func applyImageBackgroundToTheNavigationBar() {
-        /*  These background images contain a small pattern which is displayed
-            in the lower right corner of the navigation bar.
-        */
-        var backImageForDefaultBarMetrics = #imageLiteral(resourceName: "NavigationBarDefault")
-        var backImageForLandscapePhoneBarMetrics = #imageLiteral(resourceName: "NavigationBarLandscapePhone")
+   
+        guard let bounds = navigationController?.navigationBar.bounds else { return }
+        
+        var backImageForDefaultBarMetrics =
+            UIImage.gradientImage(bounds: bounds,
+                                  colors: [UIColor.systemBlue.cgColor, UIColor.systemFill.cgColor])
+        var backImageForLandscapePhoneBarMetrics =
+            UIImage.gradientImage(bounds: bounds,
+                                  colors: [UIColor.systemTeal.cgColor, UIColor.systemFill.cgColor])
         
         /*  Both of the above images are smaller than the navigation bar's size.
             To enable the images to resize gracefully while keeping their
@@ -72,6 +97,8 @@ class CustomAppearanceViewController: UITableViewController {
             allows you to toggle between appearances at runtime which necessitates
             applying appearance customizations directly to the navigation bar.
         */
+        
+        // Uncomment this line to use the appearance proxy to customize the appearance of UIKit elements.
         // let navigationBarAppearance =
         //      UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self])
 
@@ -122,10 +149,8 @@ class CustomAppearanceViewController: UITableViewController {
  			allows you to toggle between appearances at runtime which necessitates
    			applying appearance customizations directly to the navigation bar.
 		*/
-		//let navigationBarAppearance =
-        //      UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+
         let navigationBarAppearance = self.navigationController!.navigationBar
-        
         navigationBarAppearance.setBackgroundImage(transparentBackground, for: .default)
     }
     
@@ -197,27 +222,13 @@ class CustomAppearanceViewController: UITableViewController {
         switch sender.selectedSegmentIndex {
         case 0: // Transparent Background
             applyImageBackgroundToTheNavigationBar()
-            
         case 1: // Transparent
             applyTransparentBackgroundToTheNavigationBar(0.87)
-            
         case 2: // Colored
             applyBarTintColorToTheNavigationBar()
-            
         default:
             break
         }
     }
-	
-    // MARK: - UITableViewDelegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if navigationItem.prompt == dataSource.city(index: indexPath.row) {
-            navigationItem.prompt = nil
-            tableView.deselectRow(at: indexPath, animated: true)
-        } else {
-			navigationItem.prompt = dataSource.city(index: indexPath.row)
-        }
-    }
-    
+
 }

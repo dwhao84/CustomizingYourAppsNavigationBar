@@ -23,6 +23,7 @@ To change the bar style to black-translucent:
 ``` swift
 self.navigationController!.navigationBar.barStyle = .black
 self.navigationController!.navigationBar.isTranslucent = true
+self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
 self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
 ```
 [View in Source](x-source-tag://BarStyleExample)
@@ -63,7 +64,7 @@ This part of the sample demonstrates how to use the [`prompt`](https://developer
 Here's how to set the navigation item's prompt:
 
 ``` swift
-navigationItem.prompt = "Navigation prompts appear at the top."
+navigationItem.prompt = NSLocalizedString("Navigation prompts appear at the top.", comment: "")
 ```
 [View in Source](x-source-tag://PromptExample)
 
@@ -82,25 +83,29 @@ navigationBarAppearance.setBackgroundImage(backImageForLandscapePhoneBarMetrics,
 
 ## Customize the Back Button
 
-In addition, you can use an image as the back button without any back button text and without the back arrow that normally appears next to the back button, like so:
+In addition, you can use an image as the back button without any back button text and without the back arrow that normally appears next to the back button. To set the back button UINavigationBar appearance:
 
 ``` swift
-var backButtonBackgroundImage = #imageLiteral(resourceName: "Menu")
-
-backButtonBackgroundImage =
-    backButtonBackgroundImage.resizableImage(withCapInsets:
-        UIEdgeInsets(top: 0, left: backButtonBackgroundImage.size.width - 1, bottom: 0, right: 0))
-
+// For Back button customization, setup the custom image for UINavigationBar inside CustomBackButtonNavController.
+let backButtonBackgroundImage = UIImage(systemName: "list.bullet")
 let barAppearance =
     UINavigationBar.appearance(whenContainedInInstancesOf: [CustomBackButtonNavController.self])
 barAppearance.backIndicatorImage = backButtonBackgroundImage
 barAppearance.backIndicatorTransitionMaskImage = backButtonBackgroundImage
 
-// Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
+// Nudge the back UIBarButtonItem image down a bit.
+let barButtonAppearance =
+    UIBarButtonItem.appearance(whenContainedInInstancesOf: [CustomBackButtonNavController.self])
+barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -5), for: .default)
+```
+[View in Source](x-source-tag://BackImageButtonExample)
+
+To remove the back button text:
+
+``` swift
 let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 navigationItem.backBarButtonItem = backBarButtton
 ```
-[View in Source](x-source-tag://BackImageButtonExample)
 
 ## Modify Your Large Title
 
@@ -109,8 +114,34 @@ Another option for customizing your navigation bar includes setting its title at
 The code below shows how to set the background image of a navigation bar:
 
 ``` swift
-if #available(iOS 11.0, *) {
-	self.navigationController?.navigationBar.prefersLargeTitles = true
-}
+self.navigationController?.navigationBar.prefersLargeTitles = true
 ```
 [View in Source](x-source-tag://LargeTitleExample)
+
+## Appearance
+
+You can use [`UINavigationBarAppearance`](https://developer.apple.com/documentation/uikit/uinavigationbarappearance) and [`UIBarButtonItemAppearance`](https://developer.apple.com/documentation/uikit/uibarbuttonitemappearance) to change the appearance of the navigation bar.
+
+``` swift
+// Make the navigation bar's title with red text.
+let appearance = UINavigationBarAppearance()
+appearance.configureWithOpaqueBackground()
+appearance.backgroundColor = UIColor.systemRed
+appearance.titleTextAttributes = [.foregroundColor: UIColor.lightText] // With a red background, make the title more readable.
+navigationItem.standardAppearance = appearance
+navigationItem.scrollEdgeAppearance = appearance
+navigationItem.compactAppearance = appearance // For iPhone small navigation bar in landscape.
+
+// Make all buttons with green text.
+let buttonAppearance = UIBarButtonItemAppearance()
+buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemGreen]
+navigationItem.standardAppearance?.buttonAppearance = buttonAppearance
+navigationItem.compactAppearance?.buttonAppearance = buttonAppearance // For iPhone small navigation bar in landscape.
+
+// Make the done style button with yellow text.
+let doneButtonAppearance = UIBarButtonItemAppearance()
+doneButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.systemYellow]
+navigationItem.standardAppearance?.doneButtonAppearance = doneButtonAppearance
+navigationItem.compactAppearance?.doneButtonAppearance = doneButtonAppearance // For iPhone small navigation bar in landscape.
+```
+ [View in Source](x-source-tag://AppearanceExample)

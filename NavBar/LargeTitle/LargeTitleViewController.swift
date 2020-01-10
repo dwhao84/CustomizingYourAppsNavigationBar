@@ -18,9 +18,7 @@ class LargeTitleViewController: UITableViewController {
 		
 		tableView.dataSource = dataSource
         
-		if #available(iOS 11.0, *) {
-			self.navigationController?.navigationBar.prefersLargeTitles = true
-		}
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,10 +27,9 @@ class LargeTitleViewController: UITableViewController {
 			if let indexPath = self.tableView.indexPathForSelectedRow {
 				segue.destination.title = dataSource.city(index: indexPath.row)
 			}
-			if #available(iOS 11.0, *) {
-				// We choose not to have a large title for the destination view controller.
-				segue.destination.navigationItem.largeTitleDisplayMode = .never
-			}
+            
+            // We choose not to have a large title for the destination view controller.
+            segue.destination.navigationItem.largeTitleDisplayMode = .never
 		} else {
 			// This segue is popping us back up the navigation stack.
 		}
