@@ -32,7 +32,7 @@ class CustomRightViewController: UIViewController {
             navigationItem.rightBarButtonItem = addButton
             
         case SegmentedControl.imageButton:
-            // add our custom image button as the nav bar's custom right view.
+            // Add the custom image button as the nav bar's custom right view.
             let emailButton = UIBarButtonItem(image: UIImage(systemName: "envelope")!,
                                               style: .plain,
                                               target: self,

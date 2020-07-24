@@ -9,7 +9,7 @@ import UIKit
 
 class LargeTitleViewController: UITableViewController {
 
-	/// Our data source is an array of city names, populated from Cities.json.
+	/// The data source is an array of city names, populated from Cities.json.
 	let dataSource = CitiesDataSource()
 	
     /// - Tag: LargeTitleExample
@@ -28,10 +28,10 @@ class LargeTitleViewController: UITableViewController {
 				segue.destination.title = dataSource.city(index: indexPath.row)
 			}
             
-            // We choose not to have a large title for the destination view controller.
+            // You choose not to have a large title for the destination view controller.
             segue.destination.navigationItem.largeTitleDisplayMode = .never
 		} else {
-			// This segue is popping us back up the navigation stack.
+			// This segue is popping you back up the navigation stack.
 		}
 	}
 

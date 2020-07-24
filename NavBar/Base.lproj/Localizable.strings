@@ -24,4 +24,8 @@ Localized strings.
 /* NavigationPromptViewController */
 "Navigation prompts appear at the top." = "Navigation prompts appear at the top.";
 
-
+/* BarButtonMenu */
+"Copy" = "Copy";
+"Rename" = "Rename";
+"Duplicate" = "Duplicate";
+"Move" = "Move";

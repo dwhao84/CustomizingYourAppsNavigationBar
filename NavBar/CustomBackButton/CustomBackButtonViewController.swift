@@ -9,7 +9,7 @@ import UIKit
 
 class CustomBackButtonViewController: UITableViewController {
 
-    /// Our data source is an array of city names, populated from Cities.json.
+    /// The data source is an array of city names, populated from Cities.json.
     var dataSource: CitiesDataSource!
     
     override func viewDidLoad() {

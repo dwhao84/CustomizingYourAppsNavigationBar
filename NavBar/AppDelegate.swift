@@ -35,10 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     
     // MARK: - UINavigationControllerDelegate
     
-    /**
-  		Force the navigation controller to defer to the topViewController for its supportedInterfaceOrientations.
+    /** Force the navigation controller to defer to the topViewController for its supportedInterfaceOrientations.
         This allows some of the demos to rotate into landscape while keeping the rest in portrait.
-     */
+    */
     func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
         return navigationController.topViewController!.supportedInterfaceOrientations
     }
