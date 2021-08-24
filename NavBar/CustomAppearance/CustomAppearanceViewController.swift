@@ -101,39 +101,21 @@ class CustomAppearanceViewController: UITableViewController {
             with the LandscapePhone bar metrics.
          */
 
-        let navigationBarAppearance = self.navigationController!.navigationBar
-        navigationBarAppearance.setBackgroundImage(backImageForDefaultBarMetrics, for: .default)
-        navigationBarAppearance.setBackgroundImage(backImageForLandscapePhoneBarMetrics, for: .compact)
-    }
-    
-    /// Configures the navigation bar to use a transparent background (see-through but without any blur).
-    func applyTransparentBackgroundToTheNavigationBar(_ opacity: CGFloat) {
-        var transparentBackground: UIImage
+        let navBar = self.navigationController!.navigationBar
         
-        /** The background of a navigation bar switches from being translucent to transparent when a background image is applied.
-            The intensity of the background image's alpha channel is inversely related to the transparency of the bar.
-            That is, a smaller alpha channel intensity results in a more transparent bar and vise-versa.
-
-  			Below, a background image is dynamically generated with the desired opacity.
-		*/
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 1, height: 1),
-											   false,
-											   navigationController!.navigationBar.layer.contentsScale)
-        let context = UIGraphicsGetCurrentContext()!
-        context.setFillColor(red: 1, green: 1, blue: 1, alpha: opacity)
-        UIRectFill(CGRect(x: 0, y: 0, width: 1, height: 1))
-        transparentBackground = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.configureWithOpaqueBackground()
+        standardAppearance.backgroundImage = backImageForDefaultBarMetrics
         
-        /** Use the appearance proxy to customize the appearance of UIKit elements.
-            However changes made to an element's appearance proxy do not affect any existing instances of that element currently
-   			in the view hierarchy. Normally this is not an issue because you will likely be performing your appearance customizations in
-			-application:didFinishLaunchingWithOptions:. However, this example allows you to toggle between appearances at runtime
-            which necessitates applying appearance customizations directly to the navigation bar.
-		*/
-
-        let navigationBarAppearance = self.navigationController!.navigationBar
-        navigationBarAppearance.setBackgroundImage(transparentBackground, for: .default)
+        let compactAppearance = standardAppearance.copy()
+        compactAppearance.backgroundImage = backImageForLandscapePhoneBarMetrics
+        
+        navBar.standardAppearance = standardAppearance
+        navBar.scrollEdgeAppearance = standardAppearance
+        navBar.compactAppearance = compactAppearance
+        if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
+            navBar.compactScrollEdgeAppearance = compactAppearance
+        }
     }
     
     /// Configures the navigation bar to use a custom color as its background. The navigation bar remains translucent.
@@ -143,7 +125,6 @@ class CustomAppearanceViewController: UITableViewController {
             the translucent bar.  See QA1808 for more information.
             <https://developer.apple.com/library/ios/qa/qa1808/_index.html>
 		*/
-        let barTintColor = #colorLiteral(red: 0.7388114333, green: 0.9007369876, blue: 0.7299064994, alpha: 1)
 		let darkendBarTintColor = #colorLiteral(red: 0.5541667552, green: 0.7134873905, blue: 0.5476607554, alpha: 1)
 	
         /** Use the appearance proxy to customize the appearance of UIKit elements.
@@ -152,33 +133,28 @@ class CustomAppearanceViewController: UITableViewController {
      		-application:didFinishLaunchingWithOptions:. However, this example allows you to toggle between appearances at runtime
             which necessitates applying appearance customizations directly to the navigation bar.
 		*/
-        // let navigationBarAppearance =
-        //      UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self])
-        let navigationBarAppearance = self.navigationController!.navigationBar
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.configureWithOpaqueBackground()
+        standardAppearance.backgroundColor = darkendBarTintColor
         
-        navigationBarAppearance.barTintColor = darkendBarTintColor
+        let compactAppearance = standardAppearance.copy()
 
-        // For comparison, apply the same barTintColor to the toolbar, which has been configured to be opaque.
-        navigationController!.toolbar.barTintColor = barTintColor
-        navigationController!.toolbar.isTranslucent = false
+        let navBar = self.navigationController!.navigationBar
+        navBar.standardAppearance = standardAppearance
+        navBar.scrollEdgeAppearance = standardAppearance
+        navBar.compactAppearance = compactAppearance // For iPhone small navigation bar in landscape.
+        if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
+            navBar.compactScrollEdgeAppearance = compactAppearance
+        }
     }
 	
     // MARK: - Background Switcher
     
     @IBAction func configureNewNavBarBackground(_ sender: UISegmentedControl) {
-        // Reset everything.
-        self.navigationController!.navigationBar.setBackgroundImage(nil, for: .default)
-        self.navigationController!.navigationBar.setBackgroundImage(nil, for: .compact)
-        self.navigationController!.navigationBar.barTintColor = nil
-        self.navigationController!.toolbar.barTintColor = nil
-        self.navigationController!.toolbar.isTranslucent = true
-        
         switch sender.selectedSegmentIndex {
         case 0: // Transparent Background
             applyImageBackgroundToTheNavigationBar()
-        case 1: // Transparent
-            applyTransparentBackgroundToTheNavigationBar(0.87)
-        case 2: // Colored
+        case 1: // Colored
             applyBarTintColorToTheNavigationBar()
         default:
             break

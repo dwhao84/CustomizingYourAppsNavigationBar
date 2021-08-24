@@ -22,9 +22,8 @@ To change the bar style to black-translucent:
 
 ``` swift
 self.navigationController!.navigationBar.barStyle = .black
-self.navigationController!.navigationBar.isTranslucent = true
+self.navigationController!.navigationBar.isTranslucent = false
 self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
 ```
 [View in Source](x-source-tag://BarStyleExample)
 
@@ -75,9 +74,21 @@ Apply a custom background to a `UINavigationBar` by adding a bar tint color or b
 The sample sets the background image of a navigation bar like this:
 
 ``` swift
-let navigationBarAppearance = self.navigationController!.navigationBar
-navigationBarAppearance.setBackgroundImage(backImageForDefaultBarMetrics, for: .default)
-navigationBarAppearance.setBackgroundImage(backImageForLandscapePhoneBarMetrics, for: .compact)
+let navBar = self.navigationController!.navigationBar
+
+let standardAppearance = UINavigationBarAppearance()
+standardAppearance.configureWithOpaqueBackground()
+standardAppearance.backgroundImage = backImageForDefaultBarMetrics
+
+let compactAppearance = standardAppearance.copy()
+compactAppearance.backgroundImage = backImageForLandscapePhoneBarMetrics
+
+navBar.standardAppearance = standardAppearance
+navBar.scrollEdgeAppearance = standardAppearance
+navBar.compactAppearance = compactAppearance
+if #available(iOS 15.0, *) { // For compatibility with earlier iOS.
+    navBar.compactScrollEdgeAppearance = compactAppearance
+}
 ```
 [View in Source](x-source-tag://BackgroundImageExample)
 

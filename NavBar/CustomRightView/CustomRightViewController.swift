@@ -52,6 +52,7 @@ class CustomRightViewController: UIViewController {
             
             let segmentBarItem = UIBarButtonItem(customView: segmentedControl)
             navigationItem.rightBarButtonItem = segmentBarItem
+            
         default:
             break
         }
