@@ -118,8 +118,8 @@ barButtonAppearance.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0,
 Then, it removes the back button text:
 
 ``` swift
-let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-navigationItem.backBarButtonItem = backBarButtton
+let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+navigationItem.backBarButtonItem = backBarButton
 ```
 
 ## Modify the Large Title in the Navigation Bar

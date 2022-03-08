@@ -19,8 +19,8 @@ class CustomBackButtonViewController: UITableViewController {
         tableView.dataSource = dataSource
 
         // Provide an empty backBarButton to hide the 'Back' text present by default in the back button.
-        let backBarButtton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backBarButtton
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backBarButton
     }
 
 }
